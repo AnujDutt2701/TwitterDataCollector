@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Twitter data collector</string>
+    <string name="fetch_from_twitter">Fetch from twitter</string>
+    <string name="search">Search</string>
+    <string name="topics">Topics</string>
+    <string name="topics_list_fragment_error_message">No topics added</string>
+    <string name="search_tweet_fragment_error_message">No tweets found</string>
+    <string name="select_topic">Select topic</string>
+    <string name="add_topic">Add topic</string>
+    <string name="topic_query_hint">Topic query</string>
+    <string name="topic_display_name_hint">Topic display name</string>
+
+
+    <string name="fetch_from_twitter_new_york_city">New York City</string>
+    <string name="fetch_from_twitter_delhi">Delhi</string>
+    <string name="fetch_from_twitter_bangkok">Bangkok</string>
+    <string name="fetch_from_twitter_paris">Paris</string>
+    <string name="fetch_from_twitter_mexico_city">Mexico city</string>
+
+    <string name="fetch_from_twitter_english">English</string>
+    <string name="fetch_from_twitter_hindi">Hindi</string>
+    <string name="fetch_from_twitter_thai">Thai</string>
+    <string name="fetch_from_twitter_spanish">Spanish</string>
+    <string name="fetch_from_twitter_french">French</string>
+
+    <string name="fetch_from_twitter_environment">New York City</string>
+    <string name="fetch_from_twitter_crime">Delhi</string>
+    <string name="fetch_from_twitter_politics">Bangkok</string>
+    <string name="fetch_from_twitter_social_unrest">Paris</string>
+    <string name="fetch_from_twitter_infrastructure">Mexico city</string>
+
+
+
+    <string name="com.twitter.sdk.android.CONSUMER_KEY">brBvPa1dSPuWdurtPyUD2lGNf</string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET">oUj7OyEfJq6S1k1eVV9KK3Lgg2w1XZBHJ0JxLt9ZDuYZhrB9Ov</string>
+</resources>

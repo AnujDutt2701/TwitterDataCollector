@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="queryParams"
+            type="com.anujdutt.twitterdatacollector.viewmodel.SearchTweetFragmentViewModel.SearchTweetFragmentViewModelParams" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/colorPrimaryDark"
+            app:elevation="16dp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:layout_scrollFlags="enterAlways|scroll|snap"
+                app:titleTextAppearance="@style/toolbar_style" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/srl_tweet_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_marginStart="16dp"
+                    android:text="@{queryParams.query}"
+                    android:id="@+id/apb_topic"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:theme="@style/button_background_style"
+                    android:textAppearance="@style/button_text_style"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintEnd_toStartOf="@+id/apb_location"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:text="@{queryParams.query}"
+                    android:id="@+id/apb_location"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:theme="@style/button_background_style"
+                    android:textAppearance="@style/button_text_style"
+                    app:layout_constraintEnd_toStartOf="@+id/apb_language"
+                    app:layout_constraintStart_toEndOf="@id/apb_topic"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_marginEnd="16dp"
+                    android:text="@{queryParams.query}"
+                    android:id="@+id/apb_language"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:theme="@style/button_background_style"
+                    android:textAppearance="@style/button_text_style"
+                    app:layout_constraintStart_toEndOf="@id/apb_location"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="apb_topic, apb_location, apb_language" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/barrier">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_twitter_result"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+                    <TextView
+                        android:id="@+id/tv_error"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/noto_sans"
+                        android:gravity="center"
+                        android:text="@string/search_tweet_fragment_error_message"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
